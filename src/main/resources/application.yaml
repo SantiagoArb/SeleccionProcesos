@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /procesoseleccion
+
+spring:
+  profile:
+    active: dev
+  output:
+    ansi:
+      enabled: ALWAYS
+  datasource:
+    driverClassName: org.postgresql.Driver
+    initialization-mode: always
+    url: jdbc:postgresql://localhost:5432/ProcesoSeleccion
+    username: postgres
+    password: 1234
+    continueOnError: true
+  data:
+    jpa:
+      repositories:
+        enabled: true
+      hibernate:
+        ddl-auto=update: update
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: infoasesoresfinappes@gmail.com
+    password: wxvczvzjrpsbcddy
+    properties.mail.smtp: true
+    properties.mail.smtp.starttls.enable: true
