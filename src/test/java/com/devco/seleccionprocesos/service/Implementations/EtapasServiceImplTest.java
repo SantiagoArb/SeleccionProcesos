@@ -146,7 +146,7 @@ class EtapasServiceImplTest {
         procesoEntity.setIdProceso(1L);
 
         CandidatosEntity candidatosEntity = new CandidatosEntity();
-        candidatosEntity.setId_candidato(1L);
+        candidatosEntity.setIdCandidato(1L);
         candidatosEntity.setNombres("Manzanillas");
         candidatosEntity.setApellidos("Tea");
         candidatosEntity.setTipoDocumento("CC");

@@ -1,6 +1,5 @@
 package com.devco.seleccionprocesos.service.Implementations;
 
-import com.devco.seleccionprocesos.dto.CandidatosDto;
 import com.devco.seleccionprocesos.dto.InfoGeneralCandidato;
 import com.devco.seleccionprocesos.model.CandidatosEntity;
 import com.devco.seleccionprocesos.repository.CandidatosRepository;
@@ -19,7 +18,7 @@ public class CandidatosServiceImpl implements CandidatosService {
 
     @Override
     public Long saveCandidato(CandidatosEntity candidatosEntity) {
-        return repository.save(candidatosEntity).getId_candidato();
+        return repository.save(candidatosEntity).getIdCandidato();
     }
 
     @Override

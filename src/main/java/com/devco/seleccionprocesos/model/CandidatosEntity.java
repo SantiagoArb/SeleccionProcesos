@@ -15,7 +15,7 @@ public class CandidatosEntity {
     @Id
     @Column(name = "ID_CANDIDATO")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id_candidato;
+    Long idCandidato;
     @NotBlank(message = "Este campo no puede estar vacío")
     String nombres;
     @NotBlank(message = "Este campo no puede estar vacío")
