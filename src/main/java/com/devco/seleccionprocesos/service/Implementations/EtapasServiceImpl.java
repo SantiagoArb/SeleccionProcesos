@@ -2,6 +2,7 @@ package com.devco.seleccionprocesos.service.Implementations;
 
 import com.devco.seleccionprocesos.dto.InfoEtapaDto;
 import com.devco.seleccionprocesos.model.FlujoEtapasEntity;
+import com.devco.seleccionprocesos.model.MaestroCamposEntity;
 import com.devco.seleccionprocesos.model.ProcesoEntity;
 import com.devco.seleccionprocesos.model.ResultadoEntity;
 import com.devco.seleccionprocesos.repository.ResultadoProcesoRepository;
@@ -77,8 +78,9 @@ public class EtapasServiceImpl implements EtapasService {
 
     @Override
     public boolean validarEtapaDeCampos(Long idProceso, Long idEtapaActual, List<ResultadoEntity> listCampos) {
-        List<ResultadoEntity> list =listCampos.stream().filter(campo ->
-            !idEtapaActual.equals(maestroCamposService.findById(campo.getIdCampo()).get().getIdEtapa())).collect(Collectors.toCollection(ArrayList::new));
+        List<ResultadoEntity> list =listCampos.stream().filter(campo -> {
+            Optional<MaestroCamposEntity> maestroCamposEntity = maestroCamposService.findById(campo.getIdCampo());
+           return !idEtapaActual.equals(maestroCamposEntity.isPresent()?maestroCamposEntity.get().getIdEtapa(): null); }).collect(Collectors.toCollection(ArrayList::new));
 
         System.out.println("size "+ list.size());
        if(list.size()>0){
